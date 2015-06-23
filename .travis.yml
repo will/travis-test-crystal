@@ -1,17 +1,6 @@
 addons:
   postgresql: "9.4"
-language: c
-before_install: |
-  sudo service postgresql stop
-  sudo service postgresql start $TRAVIS_POSTGRESQL_VERSION
-
-  curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash
-  sudo apt-get -q update
-
-  export DATABASE_URL=postgres://postgres@localhost/crystal
-install: |
-  sudo apt-get install crystal
-cache: apt
+language: crystal
 before_script:
   - psql -c 'create database crystal;' -U postgres
 env:
