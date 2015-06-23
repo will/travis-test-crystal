@@ -1,13 +1,10 @@
 addons:
   postgresql: "9.4"
 language: crystal
-before_install: |
-  export DATABASE_URL=postgres://postgres@localhost/crystal
-install: |
-  sudo apt-get install crystal
+env: DATABASE_URL=postgres://postgres@localhost/crystal
 cache: apt
 before_script:
-  - psql -c 'create database crystal;' -U postgres
+  - createdb crystal
 notifications:
   email: false
-sudo: true
+sudo: false
