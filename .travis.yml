@@ -2,7 +2,6 @@ addons:
   postgresql: "9.4"
 language: crystal
 env: DATABASE_URL=postgres://postgres@localhost/crystal
-cache: apt
 before_script:
   - createdb crystal
 notifications:
